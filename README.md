@@ -15,7 +15,7 @@
 `npm start`
 **The app will be available on port 3001** (http://localhost:3001)
 
-#### Other Commands (note: depending on your setup, you may have to prepend the command with "run-script" i.e. `npm run-script build`)
+**Other Commands** (note: depending on your setup, you may have to prepend the command with "run-script" i.e. `npm run-script build`)
 
 - ***BUILD***: uses create-react-app's build command to make a production-ready, webpack-compiled app, with HTML prerendered (server-side)
 

@@ -1,5 +1,5 @@
 
-### Widgets Unlimited: An E-Commerce Site Built with React
+### Widgets Unlimited: A E-Commerce Site Built with React
 
 #### Features:
 - Pages: Home, Shop, Contact
@@ -9,13 +9,15 @@
 - Redux State Management
 - Accessibility
 - Server-side Rendered
+- Single Page App with Persistence via redux persist.
 
 ### Firing it up
 #### After installing (npm/yarn install) from the root directory: 
-`npm start`
+`npm start`<br /><br />
 **The app will be available on port 3001** (http://localhost:3001)
+<br />
 
-#### Other Commands (note: depending on your setup, you may have to prepend the command with "run-script" i.e. `npm run-script build`)
+**Other Commands:** (note: depending on your setup, you may have to prepend the command with "run-script" i.e. `npm run-script build`)
 
 - ***BUILD***: uses create-react-app's build command to make a production-ready, webpack-compiled app, with HTML prerendered (server-side)
 

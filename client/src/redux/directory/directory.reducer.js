@@ -4,28 +4,28 @@ const INITIAL_STATE = {
     sections: [
         {
           title: 'weather',
-          imageUrl: '/weatherwidget.png',
+          imageUrl: '/img/weatherwidget.webp',
           icon: faCloudSunRain,
           id: 1,
           linkUrl: 'shop/weather'
         },
         {
           title: 'social',
-          imageUrl: '/kidshugging.png',
+          imageUrl: '/img/kidshugging.webp',
           icon: faUserFriends,
           id: 2,
           linkUrl: 'shop/social'
         },
         {
           title: 'music',
-          imageUrl: '/musicwidget.png',
+          imageUrl: '/img/musicwidget.webp',
           icon: faPlay,
           id: 3,
           linkUrl: 'shop/music'
         },
         {
           title: 'finance',
-          imageUrl: '/stockwidget.png',
+          imageUrl: '/img/stockwidget.webp',
           icon: faChartLine,
           id: 4,
           linkUrl: 'shop/finance',
@@ -33,7 +33,7 @@ const INITIAL_STATE = {
         },
         {
           title: 'productivity',
-          imageUrl: '/pic.png',
+          imageUrl: '/img/pic.webp',
           icon: faMarker,
           id: 5,
           linkUrl: 'shop/productivity',

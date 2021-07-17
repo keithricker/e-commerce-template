@@ -33,15 +33,6 @@ app.post('/payment', (req, res) => {
   });
 })
 
-app.get('/hello',(req,res,next) => {
-  let html = `<h1>Hello, IMS!</h1><h1 id="text"></h1>
-  <script>
-    let timestamp = new Date().getTime();
-    document.getElementById("text").innerHTML = timestamp
-  </script>`
-  res.send(html)
-})
-
 app.get('*', (req, res) => {
   let ret = () => { 
     res.sendFile(indexFile); return true 

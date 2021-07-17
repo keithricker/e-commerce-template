@@ -12,10 +12,9 @@ const CheckoutPage = ({cartItems, total}) => (
   <div className="checkout-page">
       {
         cartItems.map(item => <CheckoutItem key={item.id} cartItem={item} />)
-
       }
       <div className="total">
-        <span>TOTAL: ${total}</span>
+        <span class="total-text">TOTAL:&nbsp;</span><span class="total-amount">${total}</span>
       </div>
       <div className='test-warning'>
         *Please use the following test credit card for payments*

@@ -8,12 +8,6 @@
     font-size: 20px;
     align-items: center;
 
-    @media (max-width: 700px) {
-      .checkout-column {
-        margin:initial
-      }
-    }
-  
     .image-container {
       width: 23%;
       padding-right: 15px;
@@ -49,11 +43,14 @@
     }
   
     .remove-button {
-      padding-left: 12px;
-      cursor: pointer;
+        padding-left: 12px;
+        cursor: pointer;
     }
   }
   @media (max-width: 700px) {
+    .checkout-item .remove-button {
+      padding:0px !important;
+    }
     .checkout-item {
       .name,
       .quantity,
@@ -61,5 +58,15 @@
         width: 100%;
         margin-bottom:20px;
       }
-    }
+
+      display:block;
+      text-align:center;
+
+     .checkout-column {
+       margin: initial;
+       display: block;
+       width: 100%;
+       margin-bottom:10px;
+     }
+   }
   }

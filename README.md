@@ -12,7 +12,7 @@
 
 ### Firing it up
 #### After installing (npm/yarn install) from the root directory: 
-`npm start`<br />
+`npm start`<br /><br />
 **The app will be available on port 3001** (http://localhost:3001)
 
 <br />

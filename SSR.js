@@ -29,16 +29,8 @@ const DOM = require('jsdom').JSDOM
 
 return new Promise(resolve => {
 
-  if (server && server.address) {
-    host = server.address().address
-    if (host === '::') host = 'localhost'
-    port = server.address().port
-  }
-
-  fullURL = serverUrl() || `${protocol}://${host}:${port}/`
-
   let jsdOptions = {
-    url: fullURL,
+    url: serverUrl(),
     runScripts: "dangerously",
     resources: "usable",
     beforeParse: (win) => {

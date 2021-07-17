@@ -1,5 +1,5 @@
 
-### Widgets Unlimited: An E-Commerce Site Build with React
+### Widgets Unlimited: An E-Commerce Site Built with React
 
 #### Features:
 - Pages: Home, Shop, Contact

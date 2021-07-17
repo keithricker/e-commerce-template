@@ -11,6 +11,7 @@ const CollectionItem = ({ item, addItem }) => {
     const addToCart = (cartItem) => { 
         const element = document.querySelector(`[data-id="${item.id}"] .custom-button .button-text`)
         amount++
+        element.style['font-size'] = '70%'
         element.innerHTML = `ADD TO CART  &nbsp;<span style="text-transform:lowercase">amount: ${amount}</span>`
         addItem(cartItem) 
     }

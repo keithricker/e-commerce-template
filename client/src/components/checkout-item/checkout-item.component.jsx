@@ -4,6 +4,19 @@ import './checkout-item.styles.scss';
 import { clearItemFromCart, addItem, reduceItemQuantity } from '../../redux/cart/cart.actions'
 
 const CheckoutItem = ({ cartItem, clearItem, addItem, reduceItemQuantity }) => {
+    const removeItemFromDom = (ev,item) => {
+        const parent = ev.target.parentNode
+        Object.assign(parent.style,{
+            transition: "all 0.5s",
+            'min-height': "0px",
+            height: "0px",
+            opacity: "0",
+            padding: "0px"
+        })
+        window.setTimeout(() => {
+            clearItem(item)
+        },500)
+    }
     const { name, imageUrl, price, quantity } = cartItem
     return (
     <div className='checkout-item'>
@@ -12,12 +25,12 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, reduceItemQuantity }) => {
         </div>
         <span className="checkout-column name">{name}</span>
         <span className="checkout-column quantity">
-            <div className="arrow" onClick={() => reduceItemQuantity(cartItem)}>&#10094;</div>
+            <span className="arrow" onClick={() => reduceItemQuantity(cartItem)}>&#10094;</span>
                 <span className="value">{quantity}</span>
-            <div className="arrow" onClick={() => addItem(cartItem)}>&#10095;</div>
+            <span className="arrow" onClick={(ev) => removeItemFromDom(ev,cartItem)}>&#10095;</span>
         </span>
         <span className="checkout-column price">${price}</span>
-        <div className="checkout-column remove-button" onClick={() => clearItem(cartItem)}>&#10005;</div>
+        <div className="checkout-column remove-button" onClick={(ev) => removeItemFromDom(ev,cartItem)}>&#10005;</div>
     </div>
     )
 }

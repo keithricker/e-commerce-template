@@ -26,8 +26,17 @@
   
     .total {
       margin-top: 30px;
-      margin-left: auto;
       font-size: 36px;
+      width: 100%;
+      text-align:right;
+      .total-text {
+         width: 69%;
+         display: inline-block
+      }
+      .total-amount {
+         width: 30%;
+         display: inline-block
+      }
     }
 
     .test-warning {
@@ -41,6 +50,18 @@
   }
   @media (max-width: 700px) {
     .checkout-page {
-      margin: initial
+      margin: initial;
+
+      .total {
+        text-align:center;
+        font-size:1em;
+      }
+    
+      .total-text {
+         width: initial !important;
+      }
+      .total-amount {
+         width: initial !important;
+      }
     }
   }

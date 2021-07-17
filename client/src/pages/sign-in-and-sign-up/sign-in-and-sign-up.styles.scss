@@ -1,0 +1,21 @@
+.sign-in-and-sign-up {
+  width: 99%;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  margin: 30px auto;
+
+  .sign-in, .sign-up {
+    width:50%;
+    box-sizing:border-box;
+  }
+  
+}
+
+@media screen and (max-width: 800px) {
+  .sign-in, .sign-up {
+    width:100% !important;
+    margin-bottom:30px;
+    margin-right:1em;
+  }
+}

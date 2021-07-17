@@ -1,0 +1,24 @@
+{
+  "name": "IMSCodeTest",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server.js",
+    "development": "cd ./client && npm run-script start",
+    "build": "cd ./client && npm run-script build && cd ../ && node ./SSR.js",
+    "test": "cd ./client && npm run-script test",
+    "eject": "cd ./client && npm run-script eject"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "client": "file:client",
+    "cors": "^2.8.5",
+    "express": "latest",
+    "jsdom": "^16.6.0",
+    "moment": "^2.29.1",
+    "stripe": "^6.28.0"
+  }
+}

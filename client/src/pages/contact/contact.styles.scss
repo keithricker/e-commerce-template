@@ -1,0 +1,17 @@
+#contact-page {
+  .image {
+    width:50%;
+    height:auto;
+    filter:brightness(1.1)
+  }
+}
+@media screen and (max-width: 800px) {
+  .image {
+    width:100%
+  }
+}
+@media screen and (max-width: 900px) {
+  #contact-page h2 {
+    font-size:100%
+  }
+}

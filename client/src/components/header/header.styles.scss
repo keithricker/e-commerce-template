@@ -1,0 +1,61 @@
+.header {
+    min-height: 70px;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  
+    .logo-container {
+      height: 100%;
+      width: 70px;
+      padding: 25px;
+    }
+
+    .branding {
+      width:40%;
+      float:left;
+    }
+  
+    .options {
+      width: 60%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      float:left;
+  
+      .option {
+        padding: 10px 15px;
+        cursor:pointer;
+      }
+    }
+    h2 {
+      position: relative;
+      top: -26px;
+      margin-left:0px;
+      color:#4354A2;
+      font-family: "Poppins";
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .header .options, .header .branding {
+      width:100%;
+      display:block;
+      float:initial;
+    }
+    .header .options .option {
+      width:100%
+    }
+    .header .options .option:hover {
+      background:#eee;
+    }
+    .header h2 {
+      position:initial;
+      margin-bottom:10px;
+    }
+    body {
+      font-size: 1.2em
+    }
+  }
+  .clearfix {
+    display: flow-root;
+  }

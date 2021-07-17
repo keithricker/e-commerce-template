@@ -1,0 +1,30 @@
+body {
+    font-family: "Poppins";
+    font-size: 1.5em;
+    padding: 20px 60px;
+    line-height:1.2;
+}
+
+h1,h2,h3,h4 {
+    font-family: "Open Sans";
+    color:#333;
+}
+
+h3 {
+    font-size:1.3em
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu-item, .imageWrapper {
+    border-radius: 25px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+

@@ -1,0 +1,87 @@
+.collection-item {
+    width: 22vw;
+    display: flex;
+    flex-wrap:wrap;
+    width:24%;
+    height: 350px;
+    align-items: center;
+    position: relative;
+    margin-right: 5px;
+
+    .imageWrapper {
+      width: 100%;
+      height: 95%;
+      margin-bottom: 5px;
+      background-position: center;
+      overflow:hidden
+    }
+
+    .image {
+      height: 100%;
+      width: 100%;
+      background-position: center;
+      object-fit: cover;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .custom-button {
+      width: 80%;
+      opacity: 1.0;
+      position: absolute;
+      top: 255px;
+      .button-text {
+        margin-left:31px;
+      }
+      .added {
+        opacity:0;
+      }
+    }
+
+    &:hover {
+      .image {
+        opacity: 0.8;
+      }
+      .custom-button {
+        opacity: 0.85;
+        display: flex;
+      }
+    }
+  
+    .collection-footer {
+      width: 100%;
+      height: 5%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      font-family:sans-serif;
+  
+      .name {
+        width: 90%;
+        margin-bottom: 15px;
+      }
+  
+      .price {
+        width: 10%;
+      }
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    .collection-item {
+      width:49%;
+      margin-bottom:20px
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .collection-preview {
+      display:block !important;
+    }
+    .collection-preview .preview {
+      display:block !important;
+    }
+    .collection-item {
+      width:100%;
+      margin-bottom:20px
+    }
+  }

@@ -1,10 +1,5 @@
-## Section 2, Exercise B: 
-### After installing (npm/yarn install) from the root directory###:
-- `npm start`
-- navigate your browser to `localhost:3001/hello`
 
-## Section 1, Exercise A:
-### Widgets Unlimited, inc.
+### Widgets Unlimited: An E-Commerce Site Build with React
 
 #### Features:
 - Pages: Home, Shop, Contact
@@ -22,11 +17,11 @@
 
 #### Other Commands (note: depending on your setup, you may have to prepend the command with "run-script" i.e. `npm run-script build`)
 
-- BUILD: uses create-react-app's build command to make a production-ready, webpack-compiled app, with HTML prerendered (server-side)
+- ***BUILD***: uses create-react-app's build command to make a production-ready, webpack-compiled app, with HTML prerendered (server-side)
 
-- DEVELOPMENT: uses create-react-app's start command, utilizing webpack's dev server for real-time updates. **This runs on PORT 3000** (http://localhost:3000)
+- ***DEVELOPMENT***: uses create-react-app's start command, utilizing webpack's dev server for real-time updates. **This runs on PORT 3000** (http://localhost:3000)
 
-- TEST: uses create-react-app's test command to run tests.
+- ***TEST***: uses create-react-app's test command to run tests.
 
 #### Folder Structure:  
 - **server.js:** Where the server-side code resides

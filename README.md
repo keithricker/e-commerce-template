@@ -12,13 +12,14 @@
 
 #### Features:
 - Pages: Home, Shop, Contact
-- (almost) Fully E-commerce enabled
+- Fully E-commerce enabled
 - Payment processing using Stripe
 - User Authentication using Firebase
 - Redux State Management
 - Accessibility
 - Server-side Rendered
-- Single Page App with Persistence via redux persist.
+- Single Page App with Persistence (via redux persist).
+- High Performance Metrics.
 
 ### Firing it up
 #### After installing (npm/yarn install) from the root directory: 

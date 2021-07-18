@@ -1,22 +1,4 @@
-// @remove-on-eject-begin
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-// @remove-on-eject-end
 'use strict';
-
-const path = require('path')
-const scripts = path.resolve(__dirname,'./node_modules/react-scripts/scripts')
-
-console.log(require('react-dev-utils'))
-
-const req = Object.defineProperties(function req(arg) {
-  try { return require('require-from-path')(scripts,arg) } catch {}
-  return require(arg)
-},Object.getOwnPropertyDescriptors(require))
 
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'production';
@@ -30,28 +12,21 @@ process.on('unhandledRejection', err => {
 });
 
 // Ensure environment variables are read.
-req('../config/env');
-// @remove-on-eject-begin
-// Do the preflight checks (only happens before eject).
-const verifyPackageTree = req('./utils/verifyPackageTree');
-if (process.env.SKIP_PREFLIGHT_CHECK !== 'true') {
-  verifyPackageTree();
-}
-const verifyTypeScriptSetup = req('./utils/verifyTypeScriptSetup');
-verifyTypeScriptSetup();
-// @remove-on-eject-end
+require('../config/env');
 
-const chalk = req('react-dev-utils/chalk');
-const fs = req('fs-extra');
-const bfj = req('bfj');
-const webpack = req('webpack');
-const configFactory = req('../config/webpack.config');
-const paths = req('../config/paths');
-const checkreqdFiles = req('react-dev-utils/checkreqdFiles');
-const formatWebpackMessages = req('react-dev-utils/formatWebpackMessages');
-const printHostingInstructions = req('react-dev-utils/printHostingInstructions');
-const FileSizeReporter = req('react-dev-utils/FileSizeReporter');
-const printBuildError = req('react-dev-utils/printBuildError');
+
+const path = require('path');
+const chalk = require('react-dev-utils/chalk');
+const fs = require('fs-extra');
+const bfj = require('bfj');
+const webpack = require('webpack');
+const configFactory = require('../config/webpack.config');
+const paths = require('../config/paths');
+const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
+const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
+const printHostingInstructions = require('react-dev-utils/printHostingInstructions');
+const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
+const printBuildError = require('react-dev-utils/printBuildError');
 
 const measureFileSizesBeforeBuild =
   FileSizeReporter.measureFileSizesBeforeBuild;
@@ -64,8 +39,8 @@ const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
 
 const isInteractive = process.stdout.isTTY;
 
-// Warn and crash if reqd files are missing
-if (!checkreqdFiles([paths.appHtml, paths.appIndexJs])) {
+// Warn and crash if required files are missing
+if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
 }
 
@@ -74,11 +49,10 @@ const writeStatsJson = argv.indexOf('--stats') !== -1;
 
 // Generate configuration
 const config = configFactory('production');
-config.optimization.usedExports = true
 
-// We req that you explicitly set browsers and do not fall back to
+// We require that you explicitly set browsers and do not fall back to
 // browserslist defaults.
-const { checkBrowsers } = req('react-dev-utils/browsersHelper');
+const { checkBrowsers } = require('react-dev-utils/browsersHelper');
 checkBrowsers(paths.appPath, isInteractive)
   .then(() => {
     // First, read the current file sizes in build directory.
@@ -123,7 +97,7 @@ checkBrowsers(paths.appPath, isInteractive)
       );
       console.log();
 
-      const appPackage = req(paths.appPackageJson);
+      const appPackage = require(paths.appPackageJson);
       const publicUrl = paths.publicUrlOrPath;
       const publicPath = config.output.publicPath;
       const buildFolder = path.relative(process.cwd(), paths.appBuild);

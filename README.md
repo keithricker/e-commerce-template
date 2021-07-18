@@ -8,7 +8,7 @@
 
 [View the app live](https://cifmk.sse.codesandbox.io/)
 
-[View the Project on Code Sandbox](https://codesandbox.io/s/distracted-forest-cifmk)
+[View the Project on Code Sandbox](https://codesandbox.io/s/distracted-forest-cifmk?file=/README.md)
 
 #### Features:
 - Pages: Home, Shop, Contact

@@ -2,7 +2,7 @@
 ### Widgets Unlimited: An E-Commerce Site Built with React
 
 
-![Image of Metrics](https://cifmk.sse.codesandbox.io/scores.png)
+![Image of Metrics](https://cifmk.sse.codesandbox.io/img/scores.png)
 
 
 [View the app live](https://cifmk.sse.codesandbox.io/)

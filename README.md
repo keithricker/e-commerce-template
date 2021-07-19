@@ -1,19 +1,25 @@
 
 ### Widgets Unlimited: An E-Commerce Site Built with React
+<br />
 
-[View the app live](https://r0tne.sse.codesandbox.io/)
+![Image of Metrics](https://cifmk.sse.codesandbox.io/img/scores.png)
 
-[View the Project on Code Sandbox](https://codesandbox.io/s/morning-lake-r0tne?file=/README.md)
+<br />
+
+[View the app live](https://cifmk.sse.codesandbox.io/)
+
+[View the Project on Code Sandbox](https://codesandbox.io/s/distracted-forest-cifmk?file=/README.md)
 
 #### Features:
 - Pages: Home, Shop, Contact
-- (almost) Fully E-commerce enabled
+- Fully E-commerce enabled
 - Payment processing using Stripe
 - User Authentication using Firebase
 - Redux State Management
 - Accessibility
 - Server-side Rendered
-- Single Page App with Persistence via redux persist.
+- Single Page App with Persistence (via redux persist).
+- High Performance Metrics.
 
 ### Firing it up
 #### After installing (npm/yarn install) from the root directory: 

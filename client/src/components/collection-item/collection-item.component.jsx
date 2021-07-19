@@ -4,7 +4,8 @@ import { addItem } from '../../redux/cart/cart.actions';
 import CustomButton from '../custom-button/custom-button.component';
 import './collection-item.styles.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-const cartIcon = require('@fortawesome/free-solid-svg-icons').faCartPlus
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
+const cartIcon = faCartPlus
 
 const CollectionItem = ({ item, addItem }) => {
     let amount = 0

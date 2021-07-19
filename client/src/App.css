@@ -19,8 +19,10 @@ a {
     color: black;
 }
 
-.menu-item, .imageWrapper {
+.imageWrapper, .menu-item {
+    border: 1.5px solid #a9a7a7;
     border-radius: 25px;
+    filter: drop-shadow(2px 2px 2px #b0b0b5);
 }
 
 * {

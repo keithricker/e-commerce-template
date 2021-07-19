@@ -14,29 +14,24 @@ import { signOutStart } from '../../redux/user/user.actions';
 const Header = ({ currentUser, hidden, signOutStart }) => {
   return (
   <div className="header clearfix">
-      <div className="branding">
-        <Link to="/">
-          <h2>Widgets Unlimited</h2>
-        </Link>
-      </div>
+      <Link to="/">
+        <div className="branding"><h2>Widgets Unlimited</h2></div>
+      </Link>
+            
       <div className="options">
-          <div className="option">
-            <Link to="/shop">
-              SHOP
-            </Link>
-          </div>
-          <div className="option">
-            <Link to="/contact">
-              CONTACT
-            </Link>
-          </div>
+          <Link to="/shop">
+            <div className="option">SHOP</div>
+          </Link>
+          <Link to="/contact">
+            <div className="option">CONTACT</div>
+          </Link>
           {
             currentUser ?
             <div className="option" onClick={signOutStart}>SIGN OUT</div>
             :
-            <div className="option">
-              <Link to="/signin">SIGN IN</Link>
-            </div>
+            <Link to="/signin">
+              <div className="option">SIGN IN</div>
+            </Link>
           }
           <CartIcon />
       </div>

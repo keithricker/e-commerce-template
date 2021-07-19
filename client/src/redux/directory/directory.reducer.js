@@ -1,5 +1,4 @@
-const icons = require('@fortawesome/free-solid-svg-icons')
-const { faCloudSunRain, faUserFriends, faPlay, faMarker, faChartLine } = icons;
+import { faCloudSunRain, faUserFriends, faPlay, faMarker, faChartLine } from '@fortawesome/free-solid-svg-icons'
 const INITIAL_STATE = {
     sections: [
         {

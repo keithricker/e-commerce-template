@@ -4,7 +4,7 @@ import CollectionPage from '../collection/collection.component';
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 import { useSelector, useDispatch } from 'react-redux';
 import { shopThunks } from '../../store/redux/shop/shop-slice'
-import { Spinner } from '../../components/loading/loading.component'
+import { Spinner } from '../../components/ui/loading/loading.component'
 
 const ShopPage = ({ match }) => {
   const dispatch = useDispatch()

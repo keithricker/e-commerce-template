@@ -8,6 +8,7 @@ import Header from './components/header/header.component';
 // import { checkUserSession } from './redux/user/user.actions'
 import { userThunks } from './store/redux/user/user-slice';
 
+
 const { checkUserSession } = userThunks
 const HomePage = lazyLoad(() => import('./pages/homepage/homepage.component'))
 const SignInAndSignUpPage = lazyLoad(() => import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component'));

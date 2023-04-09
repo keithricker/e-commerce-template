@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
-import FormInput from '../form-input/form-input.component';
-import CustomButton from '../custom-button/custom-button.component';
+import FormInput from '../ui/form-input/form-input.component';
+import CustomButton from '../ui/custom-button/custom-button.component';
 import { userThunks } from '../../store/redux/user/user-slice';
 import './sign-up.styles.scss';
 

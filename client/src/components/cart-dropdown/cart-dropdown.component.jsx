@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import CartItem from '../cart-item/cart-item.component';
 import { useSelector, useDispatch } from 'react-redux';
-import CustomButton from '../custom-button/custom-button.component';
+import CustomButton from '../ui/custom-button/custom-button.component';
 import { cartActions } from '../../store/redux/cart/cart-slice';
 import { withRouter } from 'react-router-dom';
 import './cart-dropdown.styles.scss';

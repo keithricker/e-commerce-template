@@ -1,13 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import CartItem from '../cart-item/cart-item.component';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import CustomButton from '../custom-button/custom-button.component';
-import { selectCartItems } from '../../redux/cart/cart.selectors';
-import { toggleCartHidden } from '../../redux/cart/cart.actions';
+import { cartActions } from '../../store/redux/cart/cart-slice';
 import { withRouter } from 'react-router-dom';
 import './cart-dropdown.styles.scss';
 
-const CartDropdown = ({ cartItems, history, toggle }) => (
+const CartDropdown = ({ history }) => {
+    const dispatch = useDispatch()
+    const toggle = () => dispatch(cartActions.toggleItems())
+    const cartItems = useSelector(state => state.cart.cartItems) || []
+    const listener = ({target}) => {
+        const dropdown = document.querySelector('.cart-dropdown')
+        if (dropdown && !dropdown.contains(target)) {
+            toggle()
+        }
+    }
+    useEffect(() => {
+        window.addEventListener('click',listener)
+        return () => window.removeEventListener('click',listener)
+    }) 
+    return (
     <div className='cart-dropdown'>
         <div className='cart-items'>
             {
@@ -27,10 +40,5 @@ const CartDropdown = ({ cartItems, history, toggle }) => (
         }
     </div>
 )
-const mapStateToProps = state => ({ 
-    cartItems : selectCartItems(state)
-})
-const mapDispatchToProps = dispatch => ({
-    toggle : () => dispatch(toggleCartHidden())
-})
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CartDropdown));
+}
+export default withRouter(CartDropdown)

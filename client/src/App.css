@@ -1,13 +1,19 @@
 body {
     font-family: "Poppins";
-    font-size: 1.5em;
+    font-size: 1.2em;
     padding: 20px 60px;
     line-height:1.2;
+    background:#1d1f33;
+    color:#f6efef;
 }
 
 h1,h2,h3,h4 {
     font-family: "Open Sans";
-    color:#333;
+    color:#fce9e9;
+}
+
+h2 {
+    font-size:1.3em;
 }
 
 h3 {
@@ -16,13 +22,13 @@ h3 {
 
 a {
     text-decoration: none;
-    color: black;
+    color: #e4a5a5;
 }
 
 .imageWrapper, .menu-item {
-    border: 1.5px solid #a9a7a7;
-    border-radius: 25px;
-    filter: drop-shadow(2px 2px 2px #b0b0b5);
+    border: 1.5px solid #000;
+    border-radius: 3px;
+    filter: drop-shadow(4px 4px 4px #000);
 }
 
 * {

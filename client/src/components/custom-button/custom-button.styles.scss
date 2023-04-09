@@ -6,7 +6,7 @@
   line-height: 50px;
   padding: 0 35px 0 35px;
   font-size: 20px;
-  background-color: black;
+  background-color: #574cb1;
   color: white;
   text-transform: uppercase;
   font-family: 'Open Sans Condensed';
@@ -14,7 +14,6 @@
   border: none;
   cursor: pointer;
   display: flex;
-  justify-content: center;
   
   &:hover {
     background-color: white;
@@ -32,7 +31,7 @@
   }
 
   &.inverted {
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.9);
     color: white;
     a {
       color: white

@@ -25,14 +25,19 @@
       .option {
         padding: 10px 15px;
         cursor:pointer;
+        font-family:sans-serif;
+        font-size:0.8em;
       }
     }
     h2 {
       position: relative;
       top: -26px;
       margin-left:0px;
-      color:#4354A2;
+      color: #e4a5a5;
       font-family: "Poppins";
+    }
+    .branding h2 {
+      font-size:1.4em;
     }
   }
 
@@ -46,7 +51,8 @@
       width:100%
     }
     .header .options .option:hover {
-      background:#eee;
+      background:#640c6e;
+      color:#fff;
     }
     .header h2 {
       position:initial;

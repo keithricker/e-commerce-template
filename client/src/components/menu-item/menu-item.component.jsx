@@ -6,9 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const MenuItem = ({ title, imageUrl, icon, size, history, linkUrl, match }) => {
     if (size + '' === 'undefined') size = 'small'
     return (
-    <div 
-        className={`${size} menu-item`} 
-    >
+    <div className={`${size} menu-item`} >
         <img className="background-image" alt={title} src={imageUrl} loading="lazy" />
         <div className="content" onClick={() => history.push(`${match.url}${linkUrl}`)}>
             <span><FontAwesomeIcon icon={icon} /></span>
@@ -17,6 +15,7 @@ const MenuItem = ({ title, imageUrl, icon, size, history, linkUrl, match }) => {
             </h1>
         </div>
     </div>
-)};
+    )
+};
 
 export default withRouter(MenuItem);

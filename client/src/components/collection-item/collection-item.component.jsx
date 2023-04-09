@@ -1,13 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { addItem } from '../../redux/cart/cart.actions';
+import { useDispatch } from 'react-redux';
+// import { addItem } from '../../redux/cart/cart.actions';
+import { cartActions } from '../../store/redux/cart/cart-slice';
 import CustomButton from '../custom-button/custom-button.component';
 import './collection-item.styles.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 const cartIcon = faCartPlus
 
-const CollectionItem = ({ item, addItem }) => {
+const CollectionItem = ({ item }) => {
+    const dispatch = useDispatch()
+    const addItem = cartItem => dispatch(cartActions.addItem(cartItem)) 
     let amount = 0
     const addToCart = (cartItem) => { 
         const element = document.querySelector(`[data-id="${item.id}"] .custom-button .button-text`)
@@ -33,7 +36,12 @@ const CollectionItem = ({ item, addItem }) => {
         </div>
     )
 }
+
+export default CollectionItem
+
+/*
 const mapDispatchToProps = dispatch => ({
     addItem: item => dispatch(addItem(item))
 })
 export default connect(null,mapDispatchToProps)(CollectionItem);
+*/

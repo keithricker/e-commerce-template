@@ -1,10 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './checkout-item.styles.scss';
-import { clearItemFromCart, addItem, reduceItemQuantity } from '../../redux/cart/cart.actions'
+import { cartActions } from '../../store/redux/cart/cart-slice'
 
-const CheckoutItem = ({ cartItem, clearItem, addItem, reduceItemQuantity }) => {
-    const removeItemFromDom = (ev,item) => {
+const CheckoutItem = ({cartItem}) => {
+    const { clearItem, addItem, reduceItemQuantity } = cartActions
+    const dispatch = useDispatch()
+    const clear = () => dispatch(clearItem(cartItem))
+    const subtract = () => dispatch(reduceItemQuantity(cartItem))
+    const add = () => dispatch(addItem(cartItem))
+    const removeItemFromDom = (ev) => {
         const parent = ev.target.parentNode
         Object.assign(parent.style,{
             transition: "all 0.5s",
@@ -14,7 +19,7 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, reduceItemQuantity }) => {
             padding: "0px"
         })
         window.setTimeout(() => {
-            clearItem(item)
+            clear()
         },500)
     }
     const { name, imageUrl, price, quantity } = cartItem
@@ -25,18 +30,13 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, reduceItemQuantity }) => {
         </div>
         <span className="checkout-column name">{name}</span>
         <span className="checkout-column quantity">
-            <span className="arrow" onClick={() => reduceItemQuantity(cartItem)}>&#10094;</span>
+            <span className="arrow" onClick={() => subtract()}>&#10094;</span>
                 <span className="value">{quantity}</span>
-            <span className="arrow" onClick={(ev) => addItem(cartItem)}>&#10095;</span>
+            <span className="arrow" onClick={() => add()}>&#10095;</span>
         </span>
         <span className="checkout-column price">${price}</span>
-        <div className="checkout-column remove-button" onClick={(ev) => removeItemFromDom(ev,cartItem)}>&#10005;</div>
+        <div className="checkout-column remove-button" onClick={(ev) => removeItemFromDom(ev)}>&#10005;</div>
     </div>
     )
 }
-const mapDispatchToProps = dispatch => ({
-    clearItem: item => dispatch(clearItemFromCart(item)),
-    reduceItemQuantity: item => dispatch(reduceItemQuantity(item)),
-    addItem: item => dispatch(addItem(item))
-})
-export default connect(null, mapDispatchToProps)(CheckoutItem);
+export default CheckoutItem

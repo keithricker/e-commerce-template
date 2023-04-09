@@ -1,22 +1,29 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import MenuItem from '../menu-item/menu-item.component';
-import { selectDirectorySections } from '../../redux/directory/directory.selectors';
 import './directory.styles.scss';
 
-const Directory = ({directorySections}) => {
+const Directory = () => {
+    const state = useSelector(state => state)
+    const directorySections = useSelector(state => state.shop.sections)
     return (
         <div className="directory-menu">
             {
-              directorySections.map(({id, ...otherSectionProps}) => (
-                  <MenuItem key={id} {...otherSectionProps} />
+              directorySections.map(({id, title, ...otherSectionProps}) => (
+               
+                  <MenuItem key={id} title={title} {...otherSectionProps} />
+
               )) 
             }
         </div>
     )
 }
 
+export default Directory
+
+/*
 const mapStateToProps = state => ({
   directorySections: selectDirectorySections(state)
 })
 export default connect(mapStateToProps)(Directory);
+*/

@@ -11,6 +11,11 @@
       width: 24px;
       height: 24px;
     }
+
+    img {
+      width:45px;
+      opacity:85%
+    }
   
     .item-count {
       position: absolute;
@@ -18,4 +23,11 @@
       font-weight: bold;
       bottom: 12px;
     }
+  }
+
+  @media screen and (max-width: 800px) {
+     .cart-icon {
+      margin-left:15px;
+      margin-top:12px;
+     }
   }

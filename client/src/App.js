@@ -1,13 +1,10 @@
-import React, {Suspense,useEffect} from 'react';
+import React, { Suspense,useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
 import './App.css';
 import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component';
-// import { selectCurrentUser } from './redux/user/user.selector';
-// import { checkUserSession } from './redux/user/user.actions'
 import { userThunks } from './store/redux/user/user-slice';
-
 
 const { checkUserSession } = userThunks
 const HomePage = lazyLoad(() => import('./pages/homepage/homepage.component'))
@@ -21,9 +18,9 @@ function lazyLoad(importFunc) {
 }
 
 const App = () => {
-
   const dispatch = useDispatch()
-  const currentUser = useSelector(state => state.user.currentUser)
+  const user = useSelector(state => state.user)
+  const currentUser = user.currentUser
 
   useEffect(() => {
     dispatch(checkUserSession())
@@ -36,8 +33,6 @@ const App = () => {
         <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={ShopPage} />
         <Route exact path='/contact' component={ContactPage} />
-        
-          
         <Route exact path='/checkout' component={CheckoutPage} />
         <Route exact path='/signin' render={
           () => currentUser ? (
@@ -46,24 +41,8 @@ const App = () => {
               <SignInAndSignUpPage />
             )
         } />
-        
-       
       </Switch>
     </div>
   )
-
 }
-
 export default App
-
-/*
-const mapStateToProps = state => ({
-  currentUser: selectCurrentUser(state)
-})
-
-const mapDispatchToProps = dispatch => ({
-  checkUserSession: () => dispatch(checkUserSession())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
-*/

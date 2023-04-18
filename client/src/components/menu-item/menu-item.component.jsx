@@ -9,7 +9,7 @@ const MenuItem = ({ title, imageUrl, icon, size, history, linkUrl, match }) => {
     <div className={`${size} menu-item`} >
         <img className="background-image" alt={title} src={imageUrl} loading="lazy" />
         <div className="content" onClick={() => history.push(`${match.url}${linkUrl}`)}>
-            <span><FontAwesomeIcon icon={icon} /></span>
+            { icon && <span className="fontAwesomeIcon"><FontAwesomeIcon icon={icon} /></span> }
             <h1 className="title">
                 <a href={"#"}>{title.toUpperCase()}</a>
             </h1>
@@ -17,5 +17,4 @@ const MenuItem = ({ title, imageUrl, icon, size, history, linkUrl, match }) => {
     </div>
     )
 };
-
 export default withRouter(MenuItem);

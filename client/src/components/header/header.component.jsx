@@ -5,16 +5,24 @@ import { useSelector, useDispatch } from 'react-redux';
 import CartIcon from '../ui/cart-icon/cart-icon.component'
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { userThunks } from '../../store/redux/user/user-slice';
+import { withCms } from '../../cms';
 
-const Header = () => {
+const Header = ({cms}) => {
+  
+  const { branding } = cms
   const dispatch = useDispatch()
   const currentUser = useSelector(state => state.user.currentUser)
   const hidden = useSelector(state => state.cart ? state.cart.hidden : true)
   const signOut = () => dispatch(userThunks.signOut())
+  const { brandingText, titleText, titleColor } = branding
+
+  document.title = titleText
+
   return (
   <div className="header clearfix">
       <Link to="/">
-        <div className="branding"><h2>Widgets Unlimited</h2></div>
+        <div className="branding"><h2 style={{color:titleColor}}>{titleText}</h2></div>
+        { brandingText && <p className="brandingText">{brandingText}</p> }
       </Link>
             
       <div className="options">
@@ -41,5 +49,4 @@ const Header = () => {
   </div>
   )
 }
-
-export default Header
+export default withCms(Header)

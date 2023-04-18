@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { auth, googleProvider, createUserProfileDocument, getCurrentUser } from '../../../firebase/firebase.utils'
-import { signOutFailure } from '../../../redux/user/user.actions'
 
 function signInSuccess(user) {
   return {
@@ -33,7 +32,10 @@ async function failedAttempt(msg) {
 async function getSnapshotFromUserAuth(userAuth, additionalData) {
   try {
       const userRef = await createUserProfileDocument(userAuth, additionalData);
-      const userSnapshot = userRef.get();
+      if (userRef.error) {
+        throw new Error(userRef.error || "User doesn't exist.")
+      }
+      const userSnapshot = await userRef.get();
       const success = {id: userSnapshot.id, ...userSnapshot.data()};
       return success
   } catch(error) {
@@ -41,15 +43,17 @@ async function getSnapshotFromUserAuth(userAuth, additionalData) {
   }
 }
 
-
 async function isUserAuthenticated() {
   try {
       const userAuth = await getCurrentUser();
-      if (!userAuth) return { currentUser:null, error:null }
+      if (typeof userAuth !== 'object') return { isAuthenticated:false }
       const snapShot = await getSnapshotFromUserAuth(userAuth)
-      return signInSuccess(snapShot)
+      if (snapShot instanceof Error) {
+        return { isAuthenticated:false, error:snapShot.message }
+      }
+      return { isAuthenticated: true, user: snapShot }
   } catch(error) {
-      return failedAttempt(error)
+      return { isAuthenticated:false, error:error.message }
   }
 }
 
@@ -61,16 +65,25 @@ async function signInAfterSignUp(user,additionalData) {
 const asyncFunctions = {
   async checkUserSession() {
     const checked = await isUserAuthenticated()
-    return checked
+    if (checked.error) {
+      throw new Error(checked.error)
+    }
+    if (!checked.isAuthenticated) {
+      return { currentUser: null, error:null }
+    }
+    return { currentUser: checked.user, error:null }
   },
-  async signUp(email,password,displayName) {
+  async signUp({email,password,displayName}) {
     try {
       const { user } = await auth.createUserWithEmailAndPassword(email, password);
-      await createUserProfileDocument(user, { displayName })
+      const _document = await createUserProfileDocument(user, { displayName })
+      if (_document.error) {
+        return failedAttempt(_document.error)
+      }
       const snapShot = await signInAfterSignUp(user,displayName)
       return signUpSuccess(snapShot)
     } catch(error) {
-      return failedAttempt(error)
+      return failedAttempt(error.message)
     }    
   },
   async googleSignIn() {
@@ -78,7 +91,7 @@ const asyncFunctions = {
       const {user} = await auth.signInWithPopup(googleProvider);
       await getSnapshotFromUserAuth(user);
     } catch(error) {
-      return failedAttempt(error);
+      return failedAttempt(error.message);
     }    
   },
   async emailSignIn(email, password) {
@@ -87,7 +100,7 @@ const asyncFunctions = {
       const snapShot = await getSnapshotFromUserAuth(user);
       return signInSuccess(snapShot)
     } catch(error) {
-      return failedAttempt(error)
+      return failedAttempt(error.message)
     }
   },
   async signOut() {
@@ -95,7 +108,7 @@ const asyncFunctions = {
       await auth.signOut();
       return signOutSuccess()
     } catch(error) {
-      return signOutFailure(error)
+      return failedAttempt(error.message)
     }
   }
 }
@@ -112,24 +125,30 @@ const extraReducers = (builder) => {
       state.isPending = true
     })
     builder.addCase(thunks[key].fulfilled, (state, action) => {
-      Object.assign(action.payload,state)
+      Object.assign(state,action.payload)
       state.isPending = false
     })
     builder.addCase(thunks[key].rejected, (state, action) => {
-      Object.assign(action.error,state)
+      state.error = action.error.message
       state.isPending = false
     })
   })
 }
 
+const initialState = {
+  currentUser: null,
+  error:null,
+  isPending:false
+}
+
 const slice = createSlice({
   name: 'user',
-  initialState: {
-    currentUser: null,
-    error:null,
-    isPending:false
+  initialState,
+  reducers: {
+    reset() {
+      return { ...initialState }
+    }
   },
-  reducers: {},
   extraReducers
 })
 

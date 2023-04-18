@@ -25,7 +25,7 @@ const CollectionItem = ({ item }) => {
               <img className="image" src={imageUrl} alt={name} loading="lazy" />
             </div>
             <CustomButton onClick={() => addToCart(item)} inverted>
-                <span><FontAwesomeIcon icon={cartIcon} /></span>
+                <span className="fontAwesomeIcon"><FontAwesomeIcon icon={cartIcon} /></span>
                 <span className="button-text">ADD TO CART {quantityJsx}</span>
             </CustomButton>
             <div className="collection-footer">

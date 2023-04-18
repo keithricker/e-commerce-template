@@ -1,20 +1,53 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { firestore, convertSnapshot } from '../../../firebase/firebase.utils'
-import { faCloudSunRain, faUserFriends, faPlay, faMarker, faChartLine } from '@fortawesome/free-solid-svg-icons'
+import { fetchDocuments } from '../../../firebase/firebase.utils'
+import * as icons from '@fortawesome/free-solid-svg-icons'
 
-async function _fetchCollections() {
-  try {
-    const collectionRef = firestore.collection('collections');
-    const snapshot = await collectionRef.get();
-    const collectionsMap = await convertSnapshot(snapshot);
-    return collectionsMap
-  } catch (error) {
-    return error
-  }      
+const { faCloudSunRain, faUserFriends, faPlay, faMarker, faChartLine } = icons
+
+const asyncFunctions = {
+  async fetchCollections() {
+    const collections = await fetchDocuments('categories')
+    Object.values(collections).forEach(collection => {
+      collection.routeName = encodeURI(collection.title.toLowerCase())
+    })
+    return { collections }
+  },
+  async fetchSections() {
+    const result = await fetchDocuments('sections')
+    // set the icon from font awesome by name, then sort by their "order" field
+    const sections = Object.values(result).map(value => { 
+      value.icon = icons[value.icon]
+      return value
+    }).sort((a,b) => a.order - b.order)
+    return { sections }
+  }
 }
 
-export const shopThunks = {
-  fetchCollections: createAsyncThunk('shop/fetchCollections',_fetchCollections)
+const thunks = {}
+Object.keys(asyncFunctions).forEach(key => {
+  thunks[key] = createAsyncThunk(
+    'shop/'+key,asyncFunctions[key]
+  )
+})
+
+export const shopThunks = thunks
+
+const extraReducers = (builder) => {
+  Object.keys(asyncFunctions).forEach(key => {
+    builder.addCase(thunks[key].pending, (state) => {
+      state.isPending = true
+    })
+    builder.addCase(thunks[key].fulfilled, (state, action) => {
+      Object.assign(state,action.payload)
+      state.isPending = false
+      state.error = false
+    })
+    builder.addCase(thunks[key].rejected, (state, action) => {
+      console.error('fetching rejcted',action.error.message)
+      state.error = action.error.message
+      state.isPending = false
+    })
+  })
 }
 
 const slice = createSlice({
@@ -63,21 +96,7 @@ const slice = createSlice({
     ]
   },
   reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(shopThunks.fetchCollections.pending, (state) => {
-      state.isPending = true
-    })
-    builder.addCase(shopThunks.fetchCollections.fulfilled, (state, action) => {
-      state.isPending = false
-      state.error = null
-      state.collections = action.payload
-    })
-    builder.addCase(shopThunks.fetchCollections.rejected, (state, action) => {
-      state.collections = null
-      state.isPending = false
-      state.error = action.error.message
-    })
-  }
+  extraReducers
 })
 
 export const shopReducer = slice.reducer

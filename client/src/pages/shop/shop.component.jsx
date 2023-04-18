@@ -15,8 +15,8 @@ const ShopPage = ({ match }) => {
   const collections = useSelector(state => state.shop.collections)
 
   useEffect(() => {
-    dispatch(fetchCollections())
-  },[dispatch,fetchCollections])
+    (!collections || collections.constructor.name !== 'Object') && dispatch(fetchCollections())
+  },[])
 
   if (isFetching || !collections) {
     return <Spinner />

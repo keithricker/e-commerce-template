@@ -1,10 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import CollectionPreview from '../collection-preview/collection-preview.component';
-// import { selectCollection } from '../../redux/shop/shop.selectors'
-import { selectCollectionsForPreview } from '../../redux/shop/shop.selectors';
-
-
 
 const CollectionsOverview = ({collection}) => { 
     const previews = (collections) => collections ? Object.keys(collections).map(key => collections[key]) : []
@@ -25,12 +21,3 @@ const CollectionsOverview = ({collection}) => {
 };
 
 export default CollectionsOverview
-
-/*
-const mapStateToProps = (state,ownProps) => {
-    return {
-      collections: !ownProps.collection ? selectCollectionsForPreview(state) : [selectCollection(ownProps.collection.routeName)(state)]
-    }
-};
-export default connect(mapStateToProps)(CollectionsOverview);
-*/

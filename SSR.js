@@ -43,7 +43,6 @@ return new Promise(resolve => {
     }
   }
 
-  let html = require('fs').readFileSync(indexFile)
-  let theDom = new DOM(html,jsdOptions)
-
+  const html = require('fs').readFileSync(indexFile)
+  const theDom = new DOM(html,jsdOptions)
 })

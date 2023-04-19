@@ -1,5 +1,5 @@
 ### Widgets Unlimited: A Mock E-Commerce Site Built with React
-#### Note: App was created in 2021 and has some outdated components, so this is only recommended for demo purposes.
+#### Note: App was created in 2021 and has some outdated packages (which will soon be updated), so this is only recommended for demo purposes and/or code evaluation.
 #### This is the React Project Directory. Node/Express Server is ^ one level up.
 <br />
 

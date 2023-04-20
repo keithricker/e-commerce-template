@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "./scripts/start.sh",
+    "start": "chmod +x ./scripts/start.sh && ./scripts/start.sh",
     "development": "cd ./client && npm run-script start",
     "build": "cd ./client && npm run-script build && cd ../ && node ./SSR.js",
     "test": "cd ./client && npm run-script test",

@@ -1,10 +1,26 @@
 ### Widgets Unlimited: A Mock E-Commerce Site Built with React
-#### Note: App was created in 2021 and has some outdated packages (which will soon be updated), so this is only recommended for demo purposes and/or code evaluation.
-#### Running start script from this directory (client) will launch a localhost development server that updates dynamically (using nodemon -- not pre-compiled) . Running start script from the root directory (once level up) will serve a pre-compiled (server-side rendered) version of the site on port 3001.
-#### This is the React Project Directory. Node/Express Server is ^ one level up.
 <br />
 
-![Image of Metrics](https://cifmk-3001.csb.app/img/scores.png)
+#### Note: App was created in 2021 and has some outdated packages (which will soon be updated), so this is only recommended for demo purposes and/or code evaluation.
+<br />
+
+#### Running start script from this directory (client) will launch a localhost development server that updates dynamically (using nodemon -- not pre-compiled) . Running start script from the root directory ( ../ one level up) will serve a pre-compiled (server-side rendered) version of the site on port 3001.
+<br />
+
+#### This is the React Project Directory. Node/Express Server is (../) one level up.
+<br />
+
+![Image of Metrics](/client/public/img/scores.png)
+<br />
+
+#### To highlight the customizable nature of the store, a few basic configuration changes have been made to transform the site in to a Dairy Supplier
+<br />
+
+![Custom Theme](/client/public/img/dairy-suppliers.webp)
+<br />
+<br />
+
+<a href="https://codesandbox.io/s/github/keithricker/e-commerce-template"><strong>View the Project On CodeSandbox</strong></a>
 
 <br />
 

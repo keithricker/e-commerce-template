@@ -23,7 +23,8 @@
 <br />
 
 ![Custom Theme](/client/public/img/dairy-suppliers.webp)
-
+<br />
+<br />
 
 #### Features:
 - Pages: Home, Shop, Contact

@@ -3,7 +3,7 @@ import './header.styles.scss';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import CartIcon from '../ui/cart-icon/cart-icon.component'
-import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import CartDropdown from '../cart-items-dropdown/cart-items-dropdown.component';
 import { userThunks } from '../../store/redux/user/user-slice';
 import { withCms } from '../../cms';
 

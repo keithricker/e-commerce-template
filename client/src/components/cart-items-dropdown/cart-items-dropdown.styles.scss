@@ -1,0 +1,28 @@
+.cart-items {
+    max-width:400px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    color: #000;
+    font-size: 0.7em;
+
+    .empty-message {
+      font-size: 18px;
+      margin: 50px auto;
+    }
+    button {
+      margin-top: 15px;
+      font-size:1.1em;
+      width:100%;
+      height: 45px;
+      line-height: 45px;
+      background-color: #40a837;
+      justify-content: center
+    }
+    button:hover {
+      background-color:#339c2a;
+      color:white;
+    }
+  }

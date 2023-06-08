@@ -5,6 +5,7 @@
 #### Note: There are some outdated packages (which will soon be updated), so this is only recommended for demo purposes and/or code evaluation. 
 
 #### Running start script from the root level (./) will serve a pre-compiled (server-side rendered) version of the app using a simple express server, on port 3001. Server is not production-ready, but ideas can be borrowed and built upon. 
+#### To run the on the local dev server (browser updates on file save), run 'npm run development' to launch the dev server on port 3000.
 
 #### This is the Express Server Root Directory. React Project is in the /client directory. 
 
@@ -32,5 +33,4 @@
 #### Folder Structure:  
 - **server.js:** Where the server-side code resides.
 - **SSR.js** (server-side rendering): This script is called on post-build, and pre-renders the html.
-- **graphql-server:** Apollo server that queries firebase for content, and serves graphql api endpoint for the client-side React application.
 - **/client:** Where the React Application resides. Created using create-react-app (project follows that basic structure).

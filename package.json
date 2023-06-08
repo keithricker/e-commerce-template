@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "chmod +x ./scripts/start.sh && ./scripts/start.sh",
-    "development": "cd ./client && npm run-script start",
+    "development": "cd ./client && npm run-script start && cd ../",
     "build": "cd ./client && npm run-script build && cd ../ && node ./SSR.js",
     "test": "cd ./client && npm run-script test",
     "eject": "cd ./client && npm run-script eject"
@@ -13,9 +13,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@reduxjs/toolkit": "^1.9.3",
     "body-parser": "^1.19.0",
-    "client": "file:client",
     "cors": "^2.8.5",
     "express": "latest",
     "jsdom": "^16.6.0",

@@ -54,7 +54,7 @@ const App = () => {
         showDetails ? <Details />
         :
         <div style={{textAlign:'center'}}>
-          <h2>This is a functional (demo) e-commerce app built with React and Typescript</h2>
+          <h2>This is a functional (demo) e-commerce app built with React and Redux.</h2>
           <div>Among it's features is it's ability to serve as a headless CMS with either Wordpress or Drupal,
             but can be made to work with any API.
           </div>

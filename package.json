@@ -6,7 +6,7 @@
   "scripts": {
     "start": "chmod +x ./scripts/start.sh && ./scripts/start.sh",
     "development": "chmod +x ./scripts/dev-start.sh && ./scripts/dev-start.sh",
-    "build": "cd ./client && npm run-script build && cd ../ && node ./SSR.js",
+    "build": "chmod +x ./scripts/build.sh && ./scripts/build.sh",
     "test": "cd ./client && npm run-script test",
     "eject": "cd ./client && npm run-script eject"
   },

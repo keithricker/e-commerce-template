@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "engines": {
-    "node": "16.16.0"
+    "node": "16.17.0"
   },
   "scripts": {
     "start": "chmod +x ./scripts/start.sh && ./scripts/start.sh",

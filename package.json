@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "16.16.0"
+  },
   "scripts": {
     "start": "chmod +x ./scripts/start.sh && ./scripts/start.sh",
     "development": "chmod +x ./scripts/dev-start.sh && ./scripts/dev-start.sh",
